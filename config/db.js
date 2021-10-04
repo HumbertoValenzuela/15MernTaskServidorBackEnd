@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 // dotenv para las variables de entorno
-require('dotenv').config( { path: 'variables.env' } );
+require('dotenv').config( { path: '.env' } );
 
 // Conectar base de datos
 const conectarDB = async () => {

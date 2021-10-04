@@ -1,6 +1,7 @@
 // 228 Creando el Servidor de Express
 // en la terminal npm run dev para iniciar el servidor de node
 const express = require('express');
+require('dotenv').config();
 const conectarDB = require('./config/db'); //conexión mongodb
 // 264 Habilitando Cors y creando usuario
 const cors = require('cors');
@@ -27,7 +28,7 @@ app.use( cors() );
 app.use( express.json( { extended: true } ) );
 
 // Puerto de la App
-const port = process.env.port || 4000;
+// const port = process.env.PORT || 4000;
 // Una vez que se haga el deployment al hosting Heroku se espera que la variable de entorno se llame PORT
 
 // Importar Rutas
@@ -47,6 +48,6 @@ app.get('/', ( req, res) => {
 
 
 // Arrancar la App. Agrega el PORT y el callback
-app.listen(port, '0.0.0.0', () => {
-  console.log(`El servidor funcionando en puerto ${port}`);
+app.listen(process.env.PORT, () => {
+  console.log(`El servidor funcionando en puerto ${process.env.PORT}`);
 });
